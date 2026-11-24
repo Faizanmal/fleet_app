@@ -1,0 +1,308 @@
+{
+  "as_of": "2026-06-12T11:00:00+00:00",
+  "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+  "graph_version": "not_applicable",
+  "high_severity_compliance_failures": 0,
+  "insight": {
+    "coverage": {
+      "eligible": 10,
+      "fraction": 1.0,
+      "observed": 10,
+      "observed_days": 10,
+      "unknown": 0
+    },
+    "denominator": 10,
+    "device_ids": [
+      "8NM23J95R5I6"
+    ],
+    "evidence_manifest": {
+      "database_manifest_id": null,
+      "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+      "source_line_numbers": [
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "source_path": "data/device-telemetry-dataset.ndjson",
+      "verification_note": "snapshot_id is the NDJSON line number in this offline report; database evidence IDs are intentionally not fabricated"
+    },
+    "explanation": "10 of 10 eligible readings are below 20% across 10 observed days. This is a policy heuristic, not a reported compliance severity.",
+    "headline": "Primary storage is persistently low",
+    "kind": "persistent_low_storage",
+    "latest_observed_at": "2026-06-12T09:02:00Z",
+    "limitations": [
+      "Disk free space does not establish cause or user impact.",
+      "Critical is a heuristic based on latest primary free space below 10%."
+    ],
+    "numerator": 10,
+    "policy_version": "fleet-risk-v1",
+    "risk_score": 10.0,
+    "risk_weights": {
+      "confidence": 1.0,
+      "persistence": 1.0,
+      "scope": 0.1,
+      "signal_weight": 1.0
+    },
+    "severity_heuristic": "critical",
+    "suggested_action_kinds": [
+      "review_storage_capacity"
+    ],
+    "suggested_actions_executed": false,
+    "supporting_readings": [
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-03T08:42:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "7.14",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 81,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "f6969447b861daf3b0d7174046bb29c97bac616eb4028b4b7f9cb5c8be8cdc76",
+        "value": 78551906944
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-03T08:42:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "7.14",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 81,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "f6969447b861daf3b0d7174046bb29c97bac616eb4028b4b7f9cb5c8be8cdc76",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-04T09:44:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "6.64",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 82,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "44a35275c276c2678a8357c472865660f0cd5da74ffd56d7a714b46483ece70d",
+        "value": 72987813535
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-04T09:44:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "6.64",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 82,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "44a35275c276c2678a8357c472865660f0cd5da74ffd56d7a714b46483ece70d",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-05T08:42:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "6.13",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 83,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "13929c949b5dd93ba00e9bfa4455547f1543e2b88eec565d550373c2184710b8",
+        "value": 67423720127
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-05T08:42:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "6.13",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 83,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "13929c949b5dd93ba00e9bfa4455547f1543e2b88eec565d550373c2184710b8",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-06T08:49:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "5.63",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 84,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "de346664a77476f4b3c45ca9ac7bb3067c8ce80058a095072e93e206f41367dd",
+        "value": 61859626718
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-06T08:49:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "5.63",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 84,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "de346664a77476f4b3c45ca9ac7bb3067c8ce80058a095072e93e206f41367dd",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-07T10:35:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "5.12",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 85,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "70f4661c3dd80ee09427e0f5085161b4a94e37fd47ad57e79eb290a5f0b6303d",
+        "value": 56295533310
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-07T10:35:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "5.12",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 85,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "70f4661c3dd80ee09427e0f5085161b4a94e37fd47ad57e79eb290a5f0b6303d",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-08T11:06:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "4.61",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 86,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "9cc4746bef518c6f87e0ed700aa2491703949911b1b54549381e7eeeb49a22d8",
+        "value": 50731439901
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-08T11:06:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "4.61",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 86,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "9cc4746bef518c6f87e0ed700aa2491703949911b1b54549381e7eeeb49a22d8",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-09T08:35:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "4.11",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 87,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "6c5ea57c88a904b275c057df6e751f3aee1f4ce5b9a2bf3911406865422753e0",
+        "value": 45167346493
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-09T08:35:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "4.11",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 87,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "6c5ea57c88a904b275c057df6e751f3aee1f4ce5b9a2bf3911406865422753e0",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-10T08:39:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "3.60",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 88,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "fe5357026df984e7edee3c6777d00bade8edf3077bafbc2936e5eb2615634ec5",
+        "value": 39603253084
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-10T08:39:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "3.60",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 88,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "fe5357026df984e7edee3c6777d00bade8edf3077bafbc2936e5eb2615634ec5",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-11T08:32:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "3.10",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 89,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "5f499554865dbe256b28626748766c7434a1487a5fd66ef67426a3a81b05f23a",
+        "value": 34039159676
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-11T08:32:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "3.10",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 89,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "5f499554865dbe256b28626748766c7434a1487a5fd66ef67426a3a81b05f23a",
+        "value": 1099511627776
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-12T09:02:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "2.59",
+        "evidence_id": null,
+        "metric": "disk_available",
+        "snapshot_id": 90,
+        "source_path": "$.disk_volumes[0].available_bytes",
+        "source_row_sha256": "11f86faf01c1bea91c56cb396a7082d3ed71f7facf642481def1eb047801a2c5",
+        "value": 28475066267
+      },
+      {
+        "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+        "collected_at": "2026-06-12T09:02:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": "2.59",
+        "evidence_id": null,
+        "metric": "disk_size",
+        "snapshot_id": 90,
+        "source_path": "$.disk_volumes[0].size_bytes",
+        "source_row_sha256": "11f86faf01c1bea91c56cb396a7082d3ed71f7facf642481def1eb047801a2c5",
+        "value": 1099511627776
+      }
+    ],
+    "tenant": "acme-001",
+    "window_end": "2026-06-12T09:02:00Z",
+    "window_start": "2026-06-03T08:42:00Z"
+  },
+  "model_version": "not_applicable",
+  "policy_version": "fleet-risk-v1",
+  "prompt_version": "not_applicable",
+  "report_type": "source_audited_insight_example"
+}

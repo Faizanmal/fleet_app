@@ -1,0 +1,7 @@
+# Local-only identity fixture overlay. Never use this file for deployed environments.
+services:
+  api:
+    environment:
+      APP_ENV: demo
+      DEMO_AUTH_MODE: "true"
+      ACTION_MODE: SANDBOX_SIMULATION

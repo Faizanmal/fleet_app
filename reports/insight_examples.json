@@ -1,0 +1,920 @@
+{
+  "as_of": "2026-06-12T11:00:00+00:00",
+  "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+  "examples": [
+    {
+      "coverage": {
+        "eligible": 10,
+        "fraction": 1.0,
+        "observed": 10,
+        "observed_days": 10,
+        "unknown": 0
+      },
+      "denominator": 10,
+      "device_ids": [
+        "8NM23J95R5I6"
+      ],
+      "evidence_manifest": {
+        "database_manifest_id": null,
+        "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "source_line_numbers": [
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90
+        ],
+        "source_path": "data/device-telemetry-dataset.ndjson",
+        "verification_note": "snapshot_id is the NDJSON line number in this offline report; database evidence IDs are intentionally not fabricated"
+      },
+      "explanation": "10 of 10 eligible readings are below 20% across 10 observed days. This is a policy heuristic, not a reported compliance severity.",
+      "headline": "Primary storage is persistently low",
+      "kind": "persistent_low_storage",
+      "latest_observed_at": "2026-06-12T09:02:00Z",
+      "limitations": [
+        "Disk free space does not establish cause or user impact.",
+        "Critical is a heuristic based on latest primary free space below 10%."
+      ],
+      "numerator": 10,
+      "policy_version": "fleet-risk-v1",
+      "risk_score": 10.0,
+      "risk_weights": {
+        "confidence": 1.0,
+        "persistence": 1.0,
+        "scope": 0.1,
+        "signal_weight": 1.0
+      },
+      "severity_heuristic": "critical",
+      "suggested_action_kinds": [
+        "review_storage_capacity"
+      ],
+      "suggested_actions_executed": false,
+      "supporting_readings": [
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-03T08:42:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "7.14",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 81,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "f6969447b861daf3b0d7174046bb29c97bac616eb4028b4b7f9cb5c8be8cdc76",
+          "value": 78551906944
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-03T08:42:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "7.14",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 81,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "f6969447b861daf3b0d7174046bb29c97bac616eb4028b4b7f9cb5c8be8cdc76",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-04T09:44:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "6.64",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 82,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "44a35275c276c2678a8357c472865660f0cd5da74ffd56d7a714b46483ece70d",
+          "value": 72987813535
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-04T09:44:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "6.64",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 82,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "44a35275c276c2678a8357c472865660f0cd5da74ffd56d7a714b46483ece70d",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-05T08:42:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "6.13",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 83,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "13929c949b5dd93ba00e9bfa4455547f1543e2b88eec565d550373c2184710b8",
+          "value": 67423720127
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-05T08:42:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "6.13",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 83,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "13929c949b5dd93ba00e9bfa4455547f1543e2b88eec565d550373c2184710b8",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-06T08:49:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "5.63",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 84,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "de346664a77476f4b3c45ca9ac7bb3067c8ce80058a095072e93e206f41367dd",
+          "value": 61859626718
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-06T08:49:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "5.63",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 84,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "de346664a77476f4b3c45ca9ac7bb3067c8ce80058a095072e93e206f41367dd",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-07T10:35:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "5.12",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 85,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "70f4661c3dd80ee09427e0f5085161b4a94e37fd47ad57e79eb290a5f0b6303d",
+          "value": 56295533310
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-07T10:35:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "5.12",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 85,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "70f4661c3dd80ee09427e0f5085161b4a94e37fd47ad57e79eb290a5f0b6303d",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-08T11:06:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "4.61",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 86,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "9cc4746bef518c6f87e0ed700aa2491703949911b1b54549381e7eeeb49a22d8",
+          "value": 50731439901
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-08T11:06:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "4.61",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 86,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "9cc4746bef518c6f87e0ed700aa2491703949911b1b54549381e7eeeb49a22d8",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-09T08:35:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "4.11",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 87,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "6c5ea57c88a904b275c057df6e751f3aee1f4ce5b9a2bf3911406865422753e0",
+          "value": 45167346493
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-09T08:35:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "4.11",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 87,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "6c5ea57c88a904b275c057df6e751f3aee1f4ce5b9a2bf3911406865422753e0",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-10T08:39:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "3.60",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 88,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "fe5357026df984e7edee3c6777d00bade8edf3077bafbc2936e5eb2615634ec5",
+          "value": 39603253084
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-10T08:39:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "3.60",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 88,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "fe5357026df984e7edee3c6777d00bade8edf3077bafbc2936e5eb2615634ec5",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-11T08:32:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "3.10",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 89,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "5f499554865dbe256b28626748766c7434a1487a5fd66ef67426a3a81b05f23a",
+          "value": 34039159676
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-11T08:32:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "3.10",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 89,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "5f499554865dbe256b28626748766c7434a1487a5fd66ef67426a3a81b05f23a",
+          "value": 1099511627776
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-12T09:02:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "2.59",
+          "evidence_id": null,
+          "metric": "disk_available",
+          "snapshot_id": 90,
+          "source_path": "$.disk_volumes[0].available_bytes",
+          "source_row_sha256": "11f86faf01c1bea91c56cb396a7082d3ed71f7facf642481def1eb047801a2c5",
+          "value": 28475066267
+        },
+        {
+          "calculation": "available_bytes / size_bytes * 100; ROUND_HALF_UP to 0.01",
+          "collected_at": "2026-06-12T09:02:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": "2.59",
+          "evidence_id": null,
+          "metric": "disk_size",
+          "snapshot_id": 90,
+          "source_path": "$.disk_volumes[0].size_bytes",
+          "source_row_sha256": "11f86faf01c1bea91c56cb396a7082d3ed71f7facf642481def1eb047801a2c5",
+          "value": 1099511627776
+        }
+      ],
+      "tenant": "acme-001",
+      "window_end": "2026-06-12T09:02:00Z",
+      "window_start": "2026-06-03T08:42:00Z"
+    },
+    {
+      "coverage": {
+        "eligible": 10,
+        "fraction": 1.0,
+        "observed": 10,
+        "observed_days": 0,
+        "unknown": 0
+      },
+      "denominator": 1,
+      "device_ids": [
+        "7VP16KHV88LM"
+      ],
+      "evidence_manifest": {
+        "database_manifest_id": null,
+        "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "source_line_numbers": [
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60
+        ],
+        "source_path": "data/device-telemetry-dataset.ndjson",
+        "verification_note": "snapshot_id is the NDJSON line number in this offline report; database evidence IDs are intentionally not fabricated"
+      },
+      "explanation": "The latest observed battery condition is exactly 'Service Recommended'. Charge percentage and cycle counts are observations only. Recent observed trajectory: [{'at': datetime.datetime(2026, 6, 3, 9, 19, tzinfo=datetime.timezone.utc), 'percentage': 58, 'cycle_count': 1027, 'full_charge_capacity': 4223}, {'at': datetime.datetime(2026, 6, 4, 9, 14, tzinfo=datetime.timezone.utc), 'percentage': 67, 'cycle_count': 1041, 'full_charge_capacity': 4216}, {'at': datetime.datetime(2026, 6, 5, 9, 39, tzinfo=datetime.timezone.utc), 'percentage': 51, 'cycle_count': 1028, 'full_charge_capacity': 4210}, {'at': datetime.datetime(2026, 6, 6, 10, 3, tzinfo=datetime.timezone.utc), 'percentage': 64, 'cycle_count': 1026, 'full_charge_capacity': 4204}, {'at': datetime.datetime(2026, 6, 7, 9, 52, tzinfo=datetime.timezone.utc), 'percentage': 42, 'cycle_count': 1033, 'full_charge_capacity': 4198}, {'at': datetime.datetime(2026, 6, 8, 10, 4, tzinfo=datetime.timezone.utc), 'percentage': 86, 'cycle_count': 1032, 'full_charge_capacity': 4191}, {'at': datetime.datetime(2026, 6, 9, 11, 5, tzinfo=datetime.timezone.utc), 'percentage': 36, 'cycle_count': 1041, 'full_charge_capacity': 4185}, {'at': datetime.datetime(2026, 6, 10, 11, 17, tzinfo=datetime.timezone.utc), 'percentage': 33, 'cycle_count': 1040, 'full_charge_capacity': 4179}, {'at': datetime.datetime(2026, 6, 11, 10, 28, tzinfo=datetime.timezone.utc), 'percentage': 32, 'cycle_count': 1042, 'full_charge_capacity': 4172}, {'at': datetime.datetime(2026, 6, 12, 10, 41, tzinfo=datetime.timezone.utc), 'percentage': 88, 'cycle_count': 1049, 'full_charge_capacity': 4166}].",
+      "headline": "Battery condition reports Service Recommended",
+      "kind": "battery_service_condition",
+      "latest_observed_at": "2026-06-12T10:41:00Z",
+      "limitations": [
+        "No battery health percentage is derived from charge percentage.",
+        "Missing battery observations are unknown, not normal."
+      ],
+      "numerator": 1,
+      "policy_version": "fleet-risk-v1",
+      "risk_score": 6.0,
+      "risk_weights": {
+        "confidence": 1.0,
+        "persistence": 1.0,
+        "scope": 0.1,
+        "signal_weight": 0.6
+      },
+      "severity_heuristic": "warning",
+      "suggested_action_kinds": [
+        "review_battery_service"
+      ],
+      "suggested_actions_executed": false,
+      "supporting_readings": [
+        {
+          "calculation": null,
+          "collected_at": "2026-06-03T09:19:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 51,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "e8a6758e99957d1b64b9faebce4beb6d54f24e13dee864395fa2d9467e3e7ab4",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-04T09:14:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 52,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "080276e5303bee66824a6a25fe3c78a0448c591a4a0c69b9f72464fa85554b0e",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-05T09:39:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 53,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "f18aecedad979d9fa991c02600dab784d0e2963040a41084693d35a49fe2e58c",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-06T10:03:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 54,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "4b4fa32717941542fb2387a4b80c98115d41c48406ac9ba1d2fc4b2905dd00c8",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-07T09:52:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 55,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "73312265a8566eaf98aad0117af360e1340f8ae1aefc0eee7abfa39d12acb211",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-08T10:04:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 56,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "41cc30bd96946bb3a039fc14aa42b987c90edbc36f9b569994321de24df53253",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-09T11:05:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 57,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "7360bdfd23dde0444ca1d0948e40dbe876a61d5198417289246b89747717e4b0",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-10T11:17:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 58,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "72544e2ac6e40ac789ee7a520e10a6ab551442143f9b5246b64272d43d568858",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-11T10:28:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 59,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "c7c2093e9db55c367fe0195663ced111e43b54b01ad252a2d4d0138292afc789",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-12T10:41:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_condition",
+          "snapshot_id": 60,
+          "source_path": "$.battery.condition",
+          "source_row_sha256": "de3890657776b5bc0e4d58609532f0cc041a7e671c7ec97769c7668a4a7d5e19",
+          "value": "Service Recommended"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-03T09:19:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 51,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "e8a6758e99957d1b64b9faebce4beb6d54f24e13dee864395fa2d9467e3e7ab4",
+          "value": 58
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-03T09:19:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 51,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "e8a6758e99957d1b64b9faebce4beb6d54f24e13dee864395fa2d9467e3e7ab4",
+          "value": 1027
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-03T09:19:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 51,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "e8a6758e99957d1b64b9faebce4beb6d54f24e13dee864395fa2d9467e3e7ab4",
+          "value": 4223
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-04T09:14:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 52,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "080276e5303bee66824a6a25fe3c78a0448c591a4a0c69b9f72464fa85554b0e",
+          "value": 67
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-04T09:14:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 52,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "080276e5303bee66824a6a25fe3c78a0448c591a4a0c69b9f72464fa85554b0e",
+          "value": 1041
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-04T09:14:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 52,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "080276e5303bee66824a6a25fe3c78a0448c591a4a0c69b9f72464fa85554b0e",
+          "value": 4216
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-05T09:39:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 53,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "f18aecedad979d9fa991c02600dab784d0e2963040a41084693d35a49fe2e58c",
+          "value": 51
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-05T09:39:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 53,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "f18aecedad979d9fa991c02600dab784d0e2963040a41084693d35a49fe2e58c",
+          "value": 1028
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-05T09:39:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 53,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "f18aecedad979d9fa991c02600dab784d0e2963040a41084693d35a49fe2e58c",
+          "value": 4210
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-06T10:03:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 54,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "4b4fa32717941542fb2387a4b80c98115d41c48406ac9ba1d2fc4b2905dd00c8",
+          "value": 64
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-06T10:03:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 54,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "4b4fa32717941542fb2387a4b80c98115d41c48406ac9ba1d2fc4b2905dd00c8",
+          "value": 1026
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-06T10:03:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 54,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "4b4fa32717941542fb2387a4b80c98115d41c48406ac9ba1d2fc4b2905dd00c8",
+          "value": 4204
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-07T09:52:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 55,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "73312265a8566eaf98aad0117af360e1340f8ae1aefc0eee7abfa39d12acb211",
+          "value": 42
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-07T09:52:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 55,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "73312265a8566eaf98aad0117af360e1340f8ae1aefc0eee7abfa39d12acb211",
+          "value": 1033
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-07T09:52:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 55,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "73312265a8566eaf98aad0117af360e1340f8ae1aefc0eee7abfa39d12acb211",
+          "value": 4198
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-08T10:04:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 56,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "41cc30bd96946bb3a039fc14aa42b987c90edbc36f9b569994321de24df53253",
+          "value": 86
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-08T10:04:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 56,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "41cc30bd96946bb3a039fc14aa42b987c90edbc36f9b569994321de24df53253",
+          "value": 1032
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-08T10:04:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 56,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "41cc30bd96946bb3a039fc14aa42b987c90edbc36f9b569994321de24df53253",
+          "value": 4191
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-09T11:05:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 57,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "7360bdfd23dde0444ca1d0948e40dbe876a61d5198417289246b89747717e4b0",
+          "value": 36
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-09T11:05:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 57,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "7360bdfd23dde0444ca1d0948e40dbe876a61d5198417289246b89747717e4b0",
+          "value": 1041
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-09T11:05:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 57,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "7360bdfd23dde0444ca1d0948e40dbe876a61d5198417289246b89747717e4b0",
+          "value": 4185
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-10T11:17:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 58,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "72544e2ac6e40ac789ee7a520e10a6ab551442143f9b5246b64272d43d568858",
+          "value": 33
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-10T11:17:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 58,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "72544e2ac6e40ac789ee7a520e10a6ab551442143f9b5246b64272d43d568858",
+          "value": 1040
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-10T11:17:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 58,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "72544e2ac6e40ac789ee7a520e10a6ab551442143f9b5246b64272d43d568858",
+          "value": 4179
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-11T10:28:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 59,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "c7c2093e9db55c367fe0195663ced111e43b54b01ad252a2d4d0138292afc789",
+          "value": 32
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-11T10:28:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 59,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "c7c2093e9db55c367fe0195663ced111e43b54b01ad252a2d4d0138292afc789",
+          "value": 1042
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-11T10:28:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 59,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "c7c2093e9db55c367fe0195663ced111e43b54b01ad252a2d4d0138292afc789",
+          "value": 4172
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-12T10:41:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_percentage",
+          "snapshot_id": 60,
+          "source_path": "$.battery.percentage",
+          "source_row_sha256": "de3890657776b5bc0e4d58609532f0cc041a7e671c7ec97769c7668a4a7d5e19",
+          "value": 88
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-12T10:41:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_cycle_count",
+          "snapshot_id": 60,
+          "source_path": "$.battery.cycle_count",
+          "source_row_sha256": "de3890657776b5bc0e4d58609532f0cc041a7e671c7ec97769c7668a4a7d5e19",
+          "value": 1049
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-06-12T10:41:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "battery_full_charge_capacity",
+          "snapshot_id": 60,
+          "source_path": "$.battery.full_charge_capacity",
+          "source_row_sha256": "de3890657776b5bc0e4d58609532f0cc041a7e671c7ec97769c7668a4a7d5e19",
+          "value": 4166
+        }
+      ],
+      "tenant": "acme-001",
+      "window_end": "2026-06-12T10:41:00Z",
+      "window_start": "2026-06-03T09:19:00Z"
+    },
+    {
+      "coverage": {
+        "eligible": 2,
+        "fraction": 1.0,
+        "observed": 2,
+        "observed_days": 0,
+        "unknown": 0
+      },
+      "denominator": 2,
+      "device_ids": [
+        "1LYSSFD074BB"
+      ],
+      "evidence_manifest": {
+        "database_manifest_id": null,
+        "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "source_line_numbers": [
+          8,
+          9
+        ],
+        "source_path": "data/device-telemetry-dataset.ndjson",
+        "verification_note": "snapshot_id is the NDJSON line number in this offline report; database evidence IDs are intentionally not fabricated"
+      },
+      "explanation": "Source observations show check screen_lock pass at 2026-05-21T09:45:00+00:00 and fail at 2026-05-22T09:41:00+00:00; source severity is 'medium'.",
+      "headline": "Compliance check screen_lock changed from pass to fail",
+      "kind": "compliance_drift",
+      "latest_observed_at": "2026-05-22T09:41:00Z",
+      "limitations": [
+        "The transition does not establish a cause.",
+        "Source severity is retained separately from this risk heuristic."
+      ],
+      "numerator": 1,
+      "policy_version": "fleet-risk-v1",
+      "risk_score": 4.0,
+      "risk_weights": {
+        "confidence": 1.0,
+        "persistence": 0.5,
+        "scope": 0.1,
+        "signal_weight": 0.8
+      },
+      "severity_heuristic": "warning",
+      "suggested_action_kinds": [
+        "review_compliance_check"
+      ],
+      "suggested_actions_executed": false,
+      "supporting_readings": [
+        {
+          "calculation": null,
+          "collected_at": "2026-05-21T09:45:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "compliance_status:screen_lock",
+          "snapshot_id": 8,
+          "source_path": "$.compliance_results[1].status",
+          "source_row_sha256": "a63be311ac1977bd938580f21ef8e0fcc1832f12e8f7ae8727ea64e5f1474c2b",
+          "value": "pass"
+        },
+        {
+          "calculation": null,
+          "collected_at": "2026-05-22T09:41:00Z",
+          "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+          "derived_value": null,
+          "evidence_id": null,
+          "metric": "compliance_status:screen_lock",
+          "snapshot_id": 9,
+          "source_path": "$.compliance_results[1].status",
+          "source_row_sha256": "1138317c1fa1ab153f8c0a3551c3ada365b8aeb930b70320249fd5dd4ea5aa4f",
+          "value": "fail"
+        }
+      ],
+      "tenant": "acme-001",
+      "window_end": "2026-05-22T09:41:00Z",
+      "window_start": "2026-05-21T09:45:00Z"
+    }
+  ],
+  "high_severity_compliance_failures": 0,
+  "note": "Offline source examples with field-level references. Database aggregate manifest and persisted evidence IDs require an imported PostgreSQL dataset.",
+  "policy_version": "fleet-risk-v1",
+  "report_type": "source_audited_insight_examples"
+}

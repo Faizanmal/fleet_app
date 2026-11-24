@@ -1,0 +1,54 @@
+{
+  "acme_battery_service_recommended": 3,
+  "acme_primary_disk_free_below_20_percent": [
+    {
+      "device_id": "8NM23J95R5I6",
+      "free_percent": "2.59",
+      "mount_point": "C:\\"
+    },
+    {
+      "device_id": "MT7PJB7N5LRE",
+      "free_percent": "2.00",
+      "mount_point": "/"
+    }
+  ],
+  "acme_screen_lock_failures": {
+    "count": 5,
+    "severity_counts": {
+      "medium": 5
+    }
+  },
+  "data_as_of_by_tenant": {
+    "acme-001": "2026-06-12T11:00:00Z",
+    "globex-002": "2026-06-12T10:47:00Z",
+    "initech-003": "2026-06-12T10:57:00Z"
+  },
+  "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+  "latest_high_severity_compliance_failures_all_tenants": 0,
+  "latest_inventory_by_tenant": {
+    "acme-001": 10,
+    "globex-002": 8,
+    "initech-003": 7
+  },
+  "latest_macos_major_below_15": {
+    "count": 10,
+    "devices_by_tenant": {
+      "acme-001": [
+        "1LYSSFD074BB",
+        "7VP16KHV88LM",
+        "MT7PJB7N5LRE",
+        "XSU9UUDGU6AC"
+      ],
+      "globex-002": [
+        "4SEFDLPTKXAM",
+        "QPZSXKINA7GP"
+      ],
+      "initech-003": [
+        "DARFCP0BQM2G",
+        "RLD7WV7J82SH",
+        "SPKRRDF0L786",
+        "XZYK11QTPWEC"
+      ]
+    }
+  }
+}

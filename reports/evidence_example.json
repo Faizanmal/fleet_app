@@ -1,0 +1,131 @@
+{
+  "claim": {
+    "as_of": "2026-06-12T11:00:00Z",
+    "claim_type": "count",
+    "coverage": {
+      "eligible": 10,
+      "observed": 10,
+      "unknown": 0,
+      "window_days": null
+    },
+    "evidence_ids": [],
+    "limitations": [
+      "Free-space percentage is available_bytes / size_bytes, rounded to two decimals.",
+      "The source rows and hashes are verified; persisted evidence IDs require PostgreSQL import."
+    ],
+    "method": "primary_disk_free_percent_lt_20-v1",
+    "policy_version": "policy-v1",
+    "query_manifest_id": null,
+    "scope": "tenant:acme-001 latest inventory",
+    "unit": "devices with primary disk free below 20 percent",
+    "value": 2
+  },
+  "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+  "graph_version": "not_applicable",
+  "model_version": "not_applicable",
+  "prompt_version": "not_applicable",
+  "query_manifest": {
+    "coverage": {
+      "eligible": 10,
+      "observed": 10,
+      "unknown": 0,
+      "window_days": null
+    },
+    "denominator": 10,
+    "excluded_references": [
+      {
+        "collected_at": "2026-06-12T09:47:00Z",
+        "device_id": "1LYSSFD074BB",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 30,
+        "source_row_sha256": "97045c3176c4881a1506da79f3f6cada12b9c09de434da8f6ef35911184f0a20"
+      },
+      {
+        "collected_at": "2026-06-12T10:41:00Z",
+        "device_id": "7VP16KHV88LM",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 60,
+        "source_row_sha256": "de3890657776b5bc0e4d58609532f0cc041a7e671c7ec97769c7668a4a7d5e19"
+      },
+      {
+        "collected_at": "2026-06-12T09:13:00Z",
+        "device_id": "9MXJVZ1I0DKA",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 120,
+        "source_row_sha256": "07117bdcce5178f160cf137ee8041f239695a97afe4a31fc6c8600834b764bb2"
+      },
+      {
+        "collected_at": "2026-06-12T09:36:00Z",
+        "device_id": "DLT35MHGTH2D",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 150,
+        "source_row_sha256": "622a5e2251ffc61c506afbeb79555baa6617243e88e4de23e7fcb1b2797d7cb3"
+      },
+      {
+        "collected_at": "2026-06-12T10:57:00Z",
+        "device_id": "DSYPSES7SKBB",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 180,
+        "source_row_sha256": "d13470223be4d83e98619c7f6c29820cb4d1dc0e79d49ef74a4211147b06d3c2"
+      },
+      {
+        "collected_at": "2026-06-12T11:00:00Z",
+        "device_id": "M4XVHUV1MEPZ",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 210,
+        "source_row_sha256": "8836e02f34d47256c5227d246e775d8a0a518099672074e83339e01b467c1bac"
+      },
+      {
+        "collected_at": "2026-06-12T09:26:00Z",
+        "device_id": "Q3VUITEGQ400",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 270,
+        "source_row_sha256": "39253b393639a50b3b39781587b6e4c6ba03d19ad29ca7be62a15fba2fa95af2"
+      },
+      {
+        "collected_at": "2026-06-12T09:52:00Z",
+        "device_id": "XSU9UUDGU6AC",
+        "exclusion": "disk_free_percent_not_below_20",
+        "source_line_number": 300,
+        "source_row_sha256": "974c01df5d67435f5cf7f94392d8886421c0172fc9796cbd1abd68bc14ab9863"
+      }
+    ],
+    "filters": {
+      "primary_disk_free_percent": {
+        "lt": "20.00"
+      },
+      "tenant": "acme-001"
+    },
+    "latest_observed_at": "2026-06-12T11:00:00Z",
+    "matched_source_snapshots": [
+      {
+        "available_bytes": 28475066267,
+        "collected_at": "2026-06-12T09:02:00Z",
+        "device_id": "8NM23J95R5I6",
+        "field_path": "$.disk_volumes[0].available_bytes",
+        "free_percent": "2.59",
+        "mount_point": "C:\\",
+        "size_bytes": 1099511627776,
+        "source_line_number": 90,
+        "source_row_sha256": "11f86faf01c1bea91c56cb396a7082d3ed71f7facf642481def1eb047801a2c5"
+      },
+      {
+        "available_bytes": 10995116278,
+        "collected_at": "2026-06-12T08:39:00Z",
+        "device_id": "MT7PJB7N5LRE",
+        "field_path": "$.disk_volumes[0].available_bytes",
+        "free_percent": "2.00",
+        "mount_point": "/",
+        "size_bytes": 549755813888,
+        "source_line_number": 240,
+        "source_row_sha256": "df92648e3440334012b66ad194d06e842b0ff7b259b0ba42a5eb92be0ae25e25"
+      }
+    ],
+    "numerator": 2,
+    "query_type": "latest_snapshots",
+    "query_version": "deterministic-query-v1",
+    "selection_rule": "latest per device within tenant at or before as_of; collected_at DESC, snapshot ID DESC",
+    "source_hash": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de"
+  },
+  "status": "source-audited; DB-generated snapshot/evidence IDs pending PostgreSQL import"
+}

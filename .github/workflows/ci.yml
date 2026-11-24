@@ -1,0 +1,80 @@
+name: quality
+on:
+  push:
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16.6
+        env:
+          POSTGRES_DB: fleet
+          POSTGRES_USER: fleet
+          POSTGRES_PASSWORD: fleet_dev_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U fleet -d fleet"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql://fleet_app:fleet_app_dev_only@localhost:5432/fleet
+      MIGRATION_DATABASE_URL: postgresql://fleet:fleet_dev_only@localhost:5432/fleet
+      TEST_DATABASE_URL: postgresql://fleet:fleet_dev_only@localhost:5432/fleet
+      TEST_DATABASE_APP_URL: postgresql://fleet_app:fleet_app_dev_only@localhost:5432/fleet
+      TEST_DATABASE_INGEST_URL: postgresql://fleet_ingest:fleet_ingest_dev_only@localhost:5432/fleet
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable && corepack prepare pnpm@11.18.0 --activate
+      - run: uv sync --group dev --extra observability
+      - run: >-
+          PGPASSWORD=fleet_dev_only psql -h localhost -U fleet -d fleet -v ON_ERROR_STOP=1
+          -c "CREATE ROLE fleet_app LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS PASSWORD 'fleet_app_dev_only'"
+          -c "CREATE ROLE fleet_ingest LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT BYPASSRLS PASSWORD 'fleet_ingest_dev_only'"
+      - run: uv run alembic -c apps/api/alembic.ini upgrade head
+      - run: uv run ruff check apps/api/src apps/api/tests apps/api/migrations scripts
+      - run: uv run ruff format --check apps/api/src apps/api/tests apps/api/migrations scripts
+      - run: uv run pytest
+      - run: uv run python scripts/tasks.py eval-offline
+      - run: uv run python scripts/tasks.py eval-security
+      - run: pnpm --dir apps/web install --frozen-lockfile
+      - run: pnpm --dir apps/web lint
+      - run: pnpm --dir apps/web exec tsc --noEmit
+      - run: pnpm --dir apps/web build
+      - name: Upload evaluation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fleet-evaluation-reports
+          path: reports/*.json
+          if-no-files-found: warn
+  demo-smoke:
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create local-only demo environment
+        run: cp .env.example .env
+      - name: Cold-start the composed demo
+        run: make demo-up
+      - name: Ask, cite, approve, and execute sandbox simulation
+        run: python scripts/demo_smoke.py before-restart
+      - name: Restart API and recover saved trace
+        run: |
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml restart api
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml up -d --wait api
+          python scripts/demo_smoke.py after-restart
+      - name: Preserve volumes and stop demo services
+        if: always()
+        run: make demo-down

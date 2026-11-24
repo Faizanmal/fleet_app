@@ -1,0 +1,159 @@
+services:
+  db:
+    image: postgres:16.6
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fleet
+      POSTGRES_USER: fleet
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fleet_dev_only}
+      FLEET_APP_PASSWORD: ${FLEET_APP_PASSWORD:-fleet_app_dev_only}
+      FLEET_INGEST_PASSWORD: ${FLEET_INGEST_PASSWORD:-fleet_ingest_dev_only}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./apps/api/migrations/001_initial.sql:/docker-entrypoint-initdb.d/001_initial.sql:ro
+      - ./infra/docker/db-init/010-roles.sh:/docker-entrypoint-initdb.d/010-roles.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fleet -d fleet"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [app_net]
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+  api:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: ${COMPOSE_DATABASE_URL:-postgresql://fleet_app:fleet_app_dev_only@db:5432/fleet}
+      DEMO_AUTH_MODE: ${DEMO_AUTH_MODE:-false}
+      APP_ENV: ${APP_ENV:-development}
+      ACTION_MODE: ${ACTION_MODE:-SANDBOX_SIMULATION}
+      TOOL_MAX_CALLS: ${TOOL_MAX_CALLS:-8}
+      TOOL_MAX_ITEMS: ${TOOL_MAX_ITEMS:-100}
+      POLICY_VERSION: ${POLICY_VERSION:-policy-v1}
+      APP_CLOCK: ${APP_CLOCK:-UTC}
+      BUILD_VERSION: ${BUILD_VERSION:-dev}
+      API_CORS_ORIGINS: ${API_CORS_ORIGINS:-http://localhost:3000}
+      OTEL_SERVICE_NAME: ${OTEL_SERVICE_NAME:-rayda-fleet-api}
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: ${OTEL_EXPORTER_OTLP_TRACES_ENDPOINT:-}
+    ports:
+      - "127.0.0.1:${API_PUBLISH_PORT:-8000}:8000"
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    read_only: true
+    tmpfs: ["/tmp:size=64m,noexec,nosuid"]
+    networks: [app_net, edge]
+    volumes:
+      - ./data:/app/data:ro
+      - ./reports:/app/reports:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 1G
+  migrator:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    profiles: ["ops"]
+    environment:
+      DATABASE_URL: ${COMPOSE_MIGRATION_DATABASE_URL:-postgresql://fleet:fleet_dev_only@db:5432/fleet}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [app_net]
+  role-bootstrap:
+    image: postgres:16.6
+    profiles: ["ops"]
+    entrypoint: ["bash", "/scripts/010-roles.sh"]
+    environment:
+      POSTGRES_USER: fleet
+      POSTGRES_DB: fleet
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fleet_dev_only}
+      FLEET_APP_PASSWORD: ${FLEET_APP_PASSWORD:-fleet_app_dev_only}
+      FLEET_INGEST_PASSWORD: ${FLEET_INGEST_PASSWORD:-fleet_ingest_dev_only}
+      PGHOST: db
+      PGUSER: fleet
+      PGPASSWORD: ${POSTGRES_PASSWORD:-fleet_dev_only}
+      PGDATABASE: fleet
+    volumes:
+      - ./infra/docker/db-init/010-roles.sh:/scripts/010-roles.sh:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [app_net]
+  ingest-runner:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    profiles: ["ops"]
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      DATABASE_URL: ${COMPOSE_INGEST_DATABASE_URL:-postgresql://fleet_ingest:fleet_ingest_dev_only@db:5432/fleet}
+      INGEST_DATABASE_URL: ${COMPOSE_INGEST_DATABASE_URL:-postgresql://fleet_ingest:fleet_ingest_dev_only@db:5432/fleet}
+      POLICY_VERSION: ${POLICY_VERSION:-policy-v1}
+    volumes:
+      - ./data:/app/data:ro
+      - ./reports:/app/reports
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [app_net]
+  web:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    read_only: true
+    tmpfs:
+      - "/tmp:size=64m,noexec,nosuid"
+      - "/app/.next/cache:size=64m,noexec,nosuid,uid=10001,gid=10001"
+    networks: [app_net, edge]
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 768M
+  test-runner:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile.test
+    profiles: ["test"]
+    environment:
+      TEST_DATABASE_URL: ${COMPOSE_MIGRATION_DATABASE_URL:-postgresql://fleet:fleet_dev_only@db:5432/fleet}
+      TEST_DATABASE_APP_URL: ${COMPOSE_DATABASE_URL:-postgresql://fleet_app:fleet_app_dev_only@db:5432/fleet}
+      TEST_DATABASE_INGEST_URL: ${COMPOSE_INGEST_DATABASE_URL:-postgresql://fleet_ingest:fleet_ingest_dev_only@db:5432/fleet}
+    volumes:
+      - ./data:/app/data:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [app_net]
+volumes:
+  postgres_data:
+networks:
+  app_net:
+    internal: true
+  # Docker 28+ does not publish host ports for a container that is only
+  # attached to an internal network. edge exists so the web and API port
+  # mappings reach 127.0.0.1. The database stays on app_net alone.
+  edge:

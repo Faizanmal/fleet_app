@@ -1,0 +1,14 @@
+.git
+.venv
+.uv-cache
+.pnpm-store
+.ruff_cache
+.pytest_cache
+__pycache__
+**/node_modules
+.next
+**/.next
+out
+dist
+build
+.env

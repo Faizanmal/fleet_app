@@ -1,0 +1,84 @@
+{
+  "as_of": "2026-06-12T11:00:00+00:00",
+  "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+  "graph_version": "not_applicable",
+  "high_severity_compliance_failures": 0,
+  "insight": {
+    "coverage": {
+      "eligible": 2,
+      "fraction": 1.0,
+      "observed": 2,
+      "observed_days": 0,
+      "unknown": 0
+    },
+    "denominator": 2,
+    "device_ids": [
+      "1LYSSFD074BB"
+    ],
+    "evidence_manifest": {
+      "database_manifest_id": null,
+      "dataset_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+      "source_line_numbers": [
+        8,
+        9
+      ],
+      "source_path": "data/device-telemetry-dataset.ndjson",
+      "verification_note": "snapshot_id is the NDJSON line number in this offline report; database evidence IDs are intentionally not fabricated"
+    },
+    "explanation": "Source observations show check screen_lock pass at 2026-05-21T09:45:00+00:00 and fail at 2026-05-22T09:41:00+00:00; source severity is 'medium'.",
+    "headline": "Compliance check screen_lock changed from pass to fail",
+    "kind": "compliance_drift",
+    "latest_observed_at": "2026-05-22T09:41:00Z",
+    "limitations": [
+      "The transition does not establish a cause.",
+      "Source severity is retained separately from this risk heuristic."
+    ],
+    "numerator": 1,
+    "policy_version": "fleet-risk-v1",
+    "risk_score": 4.0,
+    "risk_weights": {
+      "confidence": 1.0,
+      "persistence": 0.5,
+      "scope": 0.1,
+      "signal_weight": 0.8
+    },
+    "severity_heuristic": "warning",
+    "suggested_action_kinds": [
+      "review_compliance_check"
+    ],
+    "suggested_actions_executed": false,
+    "supporting_readings": [
+      {
+        "calculation": null,
+        "collected_at": "2026-05-21T09:45:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": null,
+        "evidence_id": null,
+        "metric": "compliance_status:screen_lock",
+        "snapshot_id": 8,
+        "source_path": "$.compliance_results[1].status",
+        "source_row_sha256": "a63be311ac1977bd938580f21ef8e0fcc1832f12e8f7ae8727ea64e5f1474c2b",
+        "value": "pass"
+      },
+      {
+        "calculation": null,
+        "collected_at": "2026-05-22T09:41:00Z",
+        "data_sha256": "fb0ee31ffeeb731b919fc4d5124098c9c5b68cf3fba35eed5092a9f73655c4de",
+        "derived_value": null,
+        "evidence_id": null,
+        "metric": "compliance_status:screen_lock",
+        "snapshot_id": 9,
+        "source_path": "$.compliance_results[1].status",
+        "source_row_sha256": "1138317c1fa1ab153f8c0a3551c3ada365b8aeb930b70320249fd5dd4ea5aa4f",
+        "value": "fail"
+      }
+    ],
+    "tenant": "acme-001",
+    "window_end": "2026-05-22T09:41:00Z",
+    "window_start": "2026-05-21T09:45:00Z"
+  },
+  "model_version": "not_applicable",
+  "policy_version": "fleet-risk-v1",
+  "prompt_version": "not_applicable",
+  "report_type": "source_audited_insight_example"
+}
